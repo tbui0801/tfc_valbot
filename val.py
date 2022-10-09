@@ -1,4 +1,3 @@
-from turtle import goto
 from valo_api import endpoints
 import json
 import csv
@@ -18,7 +17,7 @@ def main():
     output_csv = []
     names = readcsv('names.csv')
    
-    row = get_ranks_valo_api(names) 
+    row = get_ranks_valo_api(names, verbose = True) 
     print(row)
     output_csv.append(row)
     
@@ -36,6 +35,8 @@ def get_ranks_valo_api(name_csv, verbose = False):
         row.append(ingamename)
         row.append(tag)
         row.append(data.current_data.currenttierpatched)
+
+        print(row)
    
     return row
 
